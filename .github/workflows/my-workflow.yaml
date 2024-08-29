@@ -1,0 +1,19 @@
+name: my-test-workflow
+on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: "Release version"
+        default: "0.0.0"
+        type: string
+        
+jobs:
+  check-gh-actor:
+    name: Check GitHub Actor is Release agent
+    runs-on: ubuntu-22.04
+    steps:
+      - name: GH Actor is release agent?
+        id: step1
+        shell: bash
+        run: |
+          echo "Hello World!"
